@@ -11,7 +11,7 @@ import { makePaymentRequest } from "@/api/payment"
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "")
 
 export default function Page() {
-    const { items, removeAll } = useCart()
+    const { items } = useCart()
     const totalPrice = items.reduce((total, item) => total + item.attributes.price, 0)
 
     console.log(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)

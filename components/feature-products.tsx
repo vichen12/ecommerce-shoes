@@ -6,9 +6,7 @@ import SkeletonSchema from "./ui/skeletonSchema";
 import { useGetFeaturedProducts } from "@/api/useGetFeatureProducts";
 import { ProductType } from "@/types/product";
 import { Card, CardContent } from "./ui/card";
-import { Expand, ShoppingCart } from "lucide-react";  // Correct import
-
-import IconButton from "./ui/icon-button";
+import { Expand, ShoppingCart } from "lucide-react";  
 import { useRouter } from "next/navigation";
 import { useCart } from "@/hooks/use-cart";
 
@@ -35,7 +33,7 @@ const FeaturedProducts = () => {
           {sortedProducts != null &&
             sortedProducts.map((product: ProductType) => {
               const { attributes, id } = product;
-              const { slug, images, productName, price, stock, size } = attributes;
+              const { slug, images, productName, price} = attributes;
 
               return (
                 <CarouselItem key={id} className="md:basis-1/2 lg:basis-1/3 group">

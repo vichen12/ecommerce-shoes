@@ -9,16 +9,18 @@ interface CartItemProps{
     product:ProductType
 }
 
-const CardItem = (props) => {
+const CardItem = (props:CartItemProps) => {
     const {product} = props
     const router = useRouter()
     const {removeItem} = useCart()
     return ( 
       <li className="flex py-6 border-b">
         <div className="cursor-pointer  h-[220px] bg-white  "onClick={()=> router.push(`/product/${product.attributes.slug}`)}>
-            <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.attributes.images.data[0].attributes.url}`}
-            alt="Product"
-            className=" w-24 h-24 overflow-hidden rounded-md sm:w-auto sm:h-32"/>
+        <img
+  src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.attributes.images?.data?.[0]?.attributes?.url || '/path-to-default-image.jpg'}`}
+  alt="Product"
+  className="w-24 h-24 overflow-hidden rounded-md sm:w-auto sm:h-32"
+/>
         </div>
         <div className="flex justify-betweenflex-1 px-6">
             <div>
