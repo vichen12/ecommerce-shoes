@@ -1,9 +1,8 @@
 'use strict';
 
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-
 module.exports = {
     async create(ctx) {
+        const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
         const { products } = ctx.request.body;
 
         const lineItems = products.map((product) => ({
