@@ -11,7 +11,7 @@ export function useGetCategories(){
             try {
                 const res = await fetch(url)
                 const json =await res.json()
-                setResult(json.data)
+                setResult((json.data ?? []).filter(Boolean))
                 setLoading(false)
             } catch (error: any) {
                 setError(error)
