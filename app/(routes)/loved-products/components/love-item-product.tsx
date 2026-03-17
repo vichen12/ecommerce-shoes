@@ -20,7 +20,7 @@ const LovedItemProduct = (props: LovedItemProductProps) => {
         <li className="flex py-6 border-b ">
            <div onClick={() => product?.attributes.slug && router.push(`/product/${product.attributes.slug}`)}
             className=" h-[180px] bg-white ">
-               {product.attributes.images.data.length > 0 ? ( // Verificación de existencia de imagen
+               {(product.attributes.images?.data ?? []).length > 0 ? (
                    <img 
                        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.attributes.images.data[0].attributes.url}`} 
                        alt="product" 

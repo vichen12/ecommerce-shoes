@@ -41,7 +41,9 @@ const FeaturedProducts = () => {
                     <Card className="bg-white dark:bg-white py-4 border border-gray-200 shadow-none">
                       <CardContent className="max-w-[370px] h-[380px] bg-white dark:bg-white relative flex items-center justify-center px-6 py-2">
                         <img
-                          src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${images.data[0].attributes.url}`}
+                          src={images?.data?.[0]?.attributes?.url
+                            ? `${process.env.NEXT_PUBLIC_BACKEND_URL}${images.data[0].attributes.url}`
+                            : '/placeholder.png'}
                           alt={productName}
                         />
                         <div className="absolute w-full px-6 transition duration-200 opacity-0 group-hover:opacity-100 bottom-5">

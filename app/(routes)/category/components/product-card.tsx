@@ -26,9 +26,13 @@ const ProductCard = (props: ProductCardProps) => {
             </div>
             <Carousel opts={{ align: "start" }} className="w-full max-w-sm">
                 <CarouselContent>
-                    {product.attributes.images.data.map((image) => (
+                    {(product.attributes.images?.data ?? []).length === 0 ? (
+                        <CarouselItem className='max-w-[270px] h-[320px] rounded-xl bg-white'>
+                            <img src='/placeholder.png' alt='Image' className="rounded-xl mt-[60px] object-cover object-center" />
+                        </CarouselItem>
+                    ) : (product.attributes.images.data ?? []).map((image) => (
                         <CarouselItem key={image.id} className='max-w-[270px] h-[320px] object-cover object-center rounded-xl bg-white '>
-                            <img 
+                            <img
                                 src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${image.attributes.url}`}
                                 alt='Image'
                                 className="rounded-xl mt-[60px] object-cover object-center"
@@ -47,7 +51,7 @@ const ProductCard = (props: ProductCardProps) => {
                             </div>
                         </CarouselItem>
                     ))}
-                </CarouselContent>
+                    </CarouselContent>
             </Carousel>
             <p className="text-2xl text-center">{product.attributes.productName}</p> {/* Cambiado a "attributes" */}
             <p className='font-bold text-center'>{formatPrice (product.attributes.price)}</p> {/* Cambiado a "attributes" */}
