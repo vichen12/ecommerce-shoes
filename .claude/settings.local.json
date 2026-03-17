@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(node:*)",
+      "Bash(cd:*)",
+      "Bash(./node_modules/.bin/next build:*)",
+      "mcp__claude_ai_Vercel__deploy_to_vercel",
+      "WebFetch(domain:ecommerce-shoes-ht4z.onrender.com)",
+      "Bash(curl:*)"
+    ]
+  }
+}
