@@ -3,12 +3,9 @@ const path = require('path');
 
 module.exports = ({ env }) => {
   const client = env('DATABASE_CLIENT', 'sqlite');
-  console.log('=== DATABASE.JS LOADED ===');
-  console.log('client value:', JSON.stringify(client));
-  console.log('DATABASE_URL set:', !!env('DATABASE_URL'));
 
   if (client === 'postgres') {
-    const config = {
+    return {
       connection: {
         client: 'postgres',
         connection: {
@@ -18,8 +15,6 @@ module.exports = ({ env }) => {
         pool: { min: 0, max: 2 },
       },
     };
-    console.log('Returning postgres config:', JSON.stringify(Object.keys(config)));
-    return config;
   }
 
   return {
