@@ -2,7 +2,7 @@
 import axios from "axios"
 
 export const makePaymentRequest = axios.create({
-    baseURL: process.env.BACKEND_URL, // Ajusta según tu configuración
+    baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
     headers: {
         Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}`,
     },

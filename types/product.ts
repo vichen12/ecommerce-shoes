@@ -9,7 +9,7 @@ export type ProductType = {
       price: number;
       size: number;
       stock: number;
-      image: {
+      images: {
         data: {
           id: number;
           attributes: {

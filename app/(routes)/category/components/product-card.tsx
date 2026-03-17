@@ -24,7 +24,7 @@ const ProductCard = (props: ProductCardProps) => {
                     {product.attributes.size}
                 </p>
             </div>
-            <Carousel opts={{ allign: "start" }} className="w-full max-w-sm">
+            <Carousel opts={{ align: "start" }} className="w-full max-w-sm">
                 <CarouselContent>
                     {product.attributes.images.data.map((image) => (
                         <CarouselItem key={image.id} className='max-w-[270px] h-[320px] object-cover object-center rounded-xl bg-white '>

@@ -16,7 +16,7 @@ export function useGetFeaturedProducts() {
                 const json = await res.json();
                 console.log("API Response:", json); // Verifica la respuesta
                 setResult(json.data || []);
-            } catch (error) {
+            } catch (error: any) {
                 setError(error.message || "An error occurred");
             } finally {
                 setLoading(false);

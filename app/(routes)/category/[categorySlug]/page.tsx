@@ -17,7 +17,7 @@ export default function Page() {
 
     const filteredProducts = result != null && !loading && (
         filterSize.length === 0 ? result : 
-        result.filter((product: ProductType) => filterSize.includes(product.attributes.size)) 
+        result.filter((product: ProductType) => filterSize.includes(String(product.attributes.size)))
     );
 
     return (
@@ -27,7 +27,7 @@ export default function Page() {
             )}
             <Separator />
             <div className="sm:flex sm:justify-between  ">
-    <FilterControlsCategory setFilterSize={setFilterSize} className="mt-[200px] bg-white " />
+    <FilterControlsCategory setFilterSize={setFilterSize} />
         </div>
             <div className="grid gap-5 mt-8 sm:grid-cols-2 md:grid-cols-3 md:gap-10  ">
                 {loading && (

@@ -33,7 +33,7 @@ export default function RootLayout({
       showSpinner={true}
       easing="ease"
       speed={200}
-      shadow="0 0 10px rgba(34, 153, 221, 1,0 0 5px rgba(34, 153, 221, 1"/>
+      shadow="0 0 10px rgba(34, 153, 221, 1),0 0 5px rgba(34, 153, 221, 1)"/>
       <Navbar />
       {children}
       <Toaster/>
