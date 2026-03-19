@@ -1,33 +1,20 @@
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/ui/navbar";
-import Footer from "@/components/ui/footer";
-import { ThemeProvider } from "@/components/ui/theme-provider";
 
-const urbanist = Urbanist({
-  subsets: ["latin"],
-});
+const urbanist = Urbanist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ecommerce-shoes",
-  description: "Welcome to the best ecommerce-shoes in the world",
+  title: "Ecommerce",
+  description: "Tu tienda online",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-<html lang="en">
-  <body className={urbanist.className}>
-    <ThemeProvider attribute="class" defaultTheme="system">
-      <Navbar />
-      {children}
-      <Footer />
-    </ThemeProvider>
-  </body>
-</html>
-  );
+    <html lang="es" suppressHydrationWarning>
+      <body className={urbanist.className} suppressHydrationWarning>
+        {children}
+      </body>
+    </html>
+  )
 }
